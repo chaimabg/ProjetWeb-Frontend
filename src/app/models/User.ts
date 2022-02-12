@@ -1,6 +1,9 @@
-
+// @ts-ignore
+// @ts-ignore
 export class User {
-  id!: string ;
+  _id!: string;
   username: string | undefined;
- password: string | undefined;
+  email !: string;
+  address!: string;
+  phone!: string;
 }
