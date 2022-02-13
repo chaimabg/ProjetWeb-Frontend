@@ -45,80 +45,79 @@ export class CowSpaceDetailsComponent implements OnInit {
 
   public ReservationForm = this.fb.group({
     date: ['', [Validators.required] ],
-   time: ['', [Validators.required]],
+    time: ['', [Validators.required]],
     guests: ['', [Validators.required]],
-   number: [''],
-   AllSpace: ['']
+    number: [''],
+    AllSpace: ['']
   });
 
 
-submit(): void{
-  const d = this.ReservationForm.value.date.concat(new String('T18:20:00.000+00:00'));
-  this.reservationService.getSpace(this.idd, d).subscribe(res => {
-    this.tab = res;
-    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', this.tab);
+  submit(): void{
+    const d = this.ReservationForm.value.date.concat(new String('T18:20:00.000+00:00'));
+    this.reservationService.getSpace(this.idd, d).subscribe(res => {
+        this.tab = res;
 
-    if (this.ReservationForm.value.number === ''){
-  this.nulle = null;
-}
-else{
-  this.nulle = new String('2021-04-18T').concat(this.ReservationForm.value.number.toString());
-}
-    if (this.ReservationForm.value.AllSpace === ''){
-  this.all = false;
-}
-else{
-  this.all = this.ReservationForm.value.AllSpace;
-}
-    const diff = this.tab[0].capacity - this.tab[0].exists;
-    this.reserved = this.tab[0].reserved;
-    console.log('difffffffffff', diff);
-    console.log(this.reserved);
+        if (this.ReservationForm.value.number === ''){
+          this.nulle = null;
+        }
+        else{
+          this.nulle = new String('2021-04-18T').concat(this.ReservationForm.value.number.toString());
+        }
+        if (this.ReservationForm.value.AllSpace === ''){
+          this.all = false;
+        }
+        else{
+          this.all = this.ReservationForm.value.AllSpace;
+        }
+        const diff = this.tab[0].capacity - this.tab[0].exists;
+        this.reserved = this.tab[0].reserved;
+        console.log('difffffffffff', diff);
+        console.log(this.reserved);
 
-    if (this.tab[0].exists < this.tab[0].capacity && !this.reserved) {
-        if (diff > this.ReservationForm.value.guests) {
-          const data = {
-            date: this.ReservationForm.value.date.concat(new String('T18:20:00.000+00:00')),
-            time: new String('2021-04-18T').concat(this.ReservationForm.value.time.toString()),
-            guests: this.ReservationForm.value.guests,
-            NumberOfHours: this.nulle,
-            AllSpace: this.all,
-            spaceId: this.space._id
-          };
-          console.log('dataaa', data);
+        if (this.tab[0].exists < this.tab[0].capacity && !this.reserved) {
+          if (diff >= this.ReservationForm.value.guests) {
+            const data = {
+              date: this.ReservationForm.value.date.concat(new String('T18:20:00.000+00:00')),
+              time: new String('2021-04-18T').concat(this.ReservationForm.value.time.toString()),
+              guests: this.ReservationForm.value.guests,
+              NumberOfHours: this.nulle,
+              AllSpace: this.all,
+              spaceId: this.space._id
+            };
+            console.log('dataaa', data);
 
-          this.reservationService.createReservation(data).subscribe(res => {
-            console.log('res', res);
-          }, (err: any) => {
-            this.error = err;
-            console.log('er', err);
-          });
+            this.reservationService.createReservation(data).subscribe(res => {
+              console.log('res', res);
+              this.router.navigateByUrl('/paymentPage').then(r => {
+              });
+            }, (err: any) => {
+              this.error = err;
+              console.log('er', err);
+
+            });
+          } else {
+            this.error = 'There are only ' + diff + ' places left !';
+          }
+
         } else {
-          this.error = 'There are only ' + diff + ' places left !';
+          this.error = 'this space is full';
         }
-        if (!this.error) {
-          this.router.navigateByUrl('/paymentPage').then(r => {
-          });
-        }
-      } else {
-        this.error = 'this space is full';
+
+
       }
-
-
-}
-  );
-}
+    );
+  }
 
 
 
 
   ngOnInit(): void {
 
-  this.idd = this.route.snapshot.params._id;
+    this.idd = this.route.snapshot.params._id;
     // this.reservationService.getSpace(this.idd).subscribe(res => {
     //   this.tab = res;
     // });
-  this.getSpace(this.route.snapshot.params._id);
+    this.getSpace(this.route.snapshot.params._id);
     // if (this.space == null) this.router.navigateByUrl('/404NOTFOUND').then(r => {});
     // if (this.space.pictures != null && this.space.pictures != undefined) {}console.log(this.space.pictures);
 
@@ -129,9 +128,9 @@ else{
       console.log(data);
       this.space = data;
       const loader = new Loader({
-  apiKey: 'AIzaSyBxv6MiH_nXVIsFUzmX5txEET91Ax7trRU'
-});
-      loader.load().then(() => {
+        apiKey: 'AIzaSyBxv6MiH_nXVIsFUzmX5txEET91Ax7trRU'
+      });
+      /*loader.load().then(() => {
         const map = new google.maps.Map(document.getElementById('map') as HTMLMapElement, {
           center: {lat: this.space.latitudeMap, lng: this.space.longitudeMap},
           zoom: 9
@@ -147,7 +146,7 @@ else{
 
           },
         });
-      });
+      });*/
 
     });
   }

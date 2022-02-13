@@ -14,6 +14,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 
 import { AppComponent } from './app.component';
+
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -32,11 +33,9 @@ import { ForgetPassComponent } from './forget-pass/forget-pass.component';
 import { ResetPassComponent } from './forget-pass/reset-pass/reset-pass.component';
 import { EditPasswordComponent } from './edit-password/edit-password.component';
 import {PayementComponent} from './payement/payement.component';
-
-
-
-
-
+import { ReservationItemComponent } from './reservation-item/reservation-item.component';
+import {AddEventComponent} from './add-event/add-event.component';
+import {EventComponent} from './event/event.component';
 
 
 @NgModule({
@@ -55,7 +54,9 @@ import {PayementComponent} from './payement/payement.component';
     FooterComponent,
     PaymentPageComponent,
     PayementComponent,
-
+    ReservationItemComponent,
+    AddEventComponent,
+    EventComponent
   ],
   imports: [
     BrowserModule,
