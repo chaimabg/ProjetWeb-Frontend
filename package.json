@@ -26,6 +26,8 @@
     "bootstrap": "^4.6.1",
     "font-awesome": "^4.7.0",
     "material-icons": "^1.10.6",
+    "ng-validate-equal": "^6.0.1",
+    "ngx-pagination": "^5.1.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
