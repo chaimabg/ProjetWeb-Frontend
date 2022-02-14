@@ -32,6 +32,7 @@ import { PayementComponent } from './payement/payement.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
 import { SpaceItemComponent } from './space-item/space-item.component';
 import { CowSpaceDetailsComponent } from './cow-space-details/cow-space-details.component';
+import { EditSpaceComponent } from './edit-space/edit-space.component';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { CowSpaceDetailsComponent } from './cow-space-details/cow-space-details.
     ReservationListComponent,
     ReservationItemComponent,
     CowSpaceDetailsComponent,
+    EditSpaceComponent,
   ],
   imports: [
     BrowserModule,

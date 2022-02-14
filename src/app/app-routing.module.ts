@@ -9,6 +9,9 @@ import { ReservationListComponent } from './reservation-list/reservation-list.co
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { CoworkingSpacesListComponent } from './coworking-spaces-list/coworking-spaces-list.component';
 import { CowSpaceDetailsComponent } from './cow-space-details/cow-space-details.component';
+import { EditSpaceComponent } from './edit-space/edit-space.component';
+import { PaymentPageComponent } from './payment-page/payment-page.component';
+import { PayementComponent } from './payement/payement.component';
 /*import {EditSpaceComponent} from './edit-space/edit-space.component';*/
 const routes: Routes = [
   {path: 'login', component: LoginComponent },
@@ -20,14 +23,15 @@ const routes: Routes = [
   {path: 'coworkingspaces', component: CoworkingSpacesListComponent},
   {path: 'coworkingspace/:_id', component:  CowSpaceDetailsComponent},
   {path: 'profile', component:  UserProfileComponent},
+  {path: 'EditSpace/:_id', component: EditSpaceComponent},
 
-
-
-  /*{path: '', component: HomeComponent},
-  {path: '404NOTFOUND', component: PageNotFoundComponent},
-    {path: 'EditSpace/:_id', component: EditSpaceComponent},
   {path: 'payment', component: PaymentPageComponent},
-  {path: 'paymentPage', component: PayementComponent},*/
+  {path: 'paymentPage', component: PayementComponent},
+
+  /*
+  {path: '404NOTFOUND', component: PageNotFoundComponent},
+  {path: '', component: HomeComponent},
+  ,*/
   {path: 'resetPassword/:token', component: ResetPassComponent}
 
 
