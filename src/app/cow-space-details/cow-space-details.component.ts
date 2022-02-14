@@ -131,23 +131,7 @@ console.log("difffffffffff",diff)
 let loader = new Loader({
   apiKey: 'AIzaSyBxv6MiH_nXVIsFUzmX5txEET91Ax7trRU'
 });
-      loader.load().then(()=>{
-        const map = new google.maps.Map(document.getElementById('map') as HTMLMapElement,{
-          center: {lat: this.space.latitudeMap, lng: this.space.longitudeMap},
-          zoom:9
-        });
-        new google.maps.Marker({
-          position: {lat: this.space.latitudeMap, lng: this.space.longitudeMap},
-          map,
-          label: {
-            text: this.space.name,
-            color: 'white', // <= HERE
-            fontSize: '17px',
-            fontWeight: '500'
 
-          },
-        });
-      });
 
     })
   }
