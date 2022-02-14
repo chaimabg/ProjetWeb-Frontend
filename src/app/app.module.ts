@@ -25,35 +25,53 @@ import {EditPasswordComponent} from "./edit-password/edit-password.component";
 import { ReservationListComponent } from './reservation-list/reservation-list.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 
+import { CoworkingSpacesListComponent } from './coworking-spaces-list/coworking-spaces-list.component';
+import { CoworkingspaceItemComponent } from './coworkingspace-item/coworkingspace-item.component';
+import { ResetPassComponent } from './forget-pass/reset-pass/reset-pass.component';
+import { PayementComponent } from './payement/payement.component';
+import { PaymentPageComponent } from './payment-page/payment-page.component';
+import { SpaceItemComponent } from './space-item/space-item.component';
+import { CowSpaceDetailsComponent } from './cow-space-details/cow-space-details.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-
-    ReservationItemComponent,
+    CowSpaceDetailsComponent,
+    LoginComponent,
+    RegisterComponent,
+    CoworkingSpacesListComponent,
+    CoworkingspaceItemComponent,
 
     NavbarComponent,
     FooterComponent,
-    LoginComponent,
-    RegisterComponent,
-    ForgetPassComponent,
-    EditPasswordComponent,
-    ReservationListComponent,
     UserProfileComponent,
 
+    PaymentPageComponent,
+
+    SpaceItemComponent,
+
+    ForgetPassComponent,
+    ResetPassComponent,
+    EditPasswordComponent,
+
+    PayementComponent,
+    ReservationListComponent,
+    ReservationItemComponent,
+    CowSpaceDetailsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     NgbModule,
-    
+
     HttpClientModule,
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
     FormsModule,
     NgbModule,
-    
+
     MatDialogModule,
     NgxPaginationModule,
     MatSnackBarModule,
