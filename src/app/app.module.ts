@@ -8,7 +8,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-
+import {NgxPaginationModule} from 'ngx-pagination';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -23,6 +23,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {ForgetPassComponent} from "./forget-pass/forget-pass.component";
 import {EditPasswordComponent} from "./edit-password/edit-password.component";
 import { ReservationListComponent } from './reservation-list/reservation-list.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { ReservationListComponent } from './reservation-list/reservation-list.co
     ForgetPassComponent,
     EditPasswordComponent,
     ReservationListComponent,
+    UserProfileComponent,
 
   ],
   imports: [
@@ -45,12 +47,15 @@ import { ReservationListComponent } from './reservation-list/reservation-list.co
     AppRoutingModule,
     ReactiveFormsModule,
     NgbModule,
+    
     HttpClientModule,
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
     FormsModule,
     NgbModule,
+    
     MatDialogModule,
+    NgxPaginationModule,
     MatSnackBarModule,
     MatMenuModule,
     MatIconModule,

@@ -3,11 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import { ReservationListComponent } from './reservation-list/reservation-list.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent },
   {path: 'register', component: RegisterComponent },
   {path: 'ReservationList/:_id', component: ReservationListComponent},
+  {path: 'profile', component:  UserProfileComponent},
  /* {path: 'coworkingspaces', component: CoworkingSpacesListComponent},
   {path: 'coworkingspace/:_id', component:  CowSpaceDetailsComponent},
   {path: 'profile', component:  UserProfileComponent},
