@@ -15,7 +15,6 @@ import {PayementComponent} from './payement/payement.component';
 import {EditSpaceComponent} from './edit-space/edit-space.component';
 
 
-
 const routes: Routes = [
   {path: 'login', component: LoginComponent },
   {path: 'register', component: RegisterComponent },
