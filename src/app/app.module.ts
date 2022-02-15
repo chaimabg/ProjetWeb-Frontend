@@ -40,11 +40,12 @@ import { ReservationListComponent } from './reservation-list/reservation-list.co
 import { ReservationItemComponent } from './reservation-item/reservation-item.component';
 
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    FooterComponent,
     EditSpaceComponent,
     LoginComponent,
     RegisterComponent,
@@ -67,6 +68,8 @@ import { ReservationItemComponent } from './reservation-item/reservation-item.co
       EventComponent,
       AddEventComponent,
       PayementComponent,
+      ReservationListComponent,
+      ReservationItemComponent,
   ],
   imports: [
     BrowserModule,
