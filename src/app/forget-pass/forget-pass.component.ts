@@ -3,6 +3,7 @@ import {MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA} from '@angula
 import { Inject } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
+import {UserService} from '../services/user.service';
 @Component({
   selector: 'app-forget-pass',
   templateUrl: './forget-pass.component.html',
@@ -16,6 +17,7 @@ export class ForgetPassComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private userService: UserService,
     private dialogRef: MatDialogRef<ForgetPassComponent>,
     @Inject(MAT_DIALOG_DATA) data: any,
     private http: HttpClient) {
@@ -23,32 +25,20 @@ export class ForgetPassComponent implements OnInit {
     this.email = data.description;
   }
  error !: string;
-  ngOnInit() {
+  ngOnInit(): void {
     this.passForm = this.fb.group({
       email: ['', [Validators.email, Validators.required]],
-
     });
   }
   get form(): any {
     return this.passForm.controls;
   }
-  save() {
-
-    const data = {
-      email : this.passForm.value.email
-    };
-    console.log(data);
-    this.http.post('http://localhost:5000/user/sendEmail', data).toPromise().then((msg: any) => {
-      this.error = msg.error;
-      if (!this.error) {
-        this.dialogRef.close(this.passForm.value.email);
-      }
-    });
-
+  save(): void {
+    this.userService.sendPwdVerificationMail(this.passForm.value.email);
   }
 
 
-  close() {
+  close(): void {
     this.dialogRef.close();
   }
 

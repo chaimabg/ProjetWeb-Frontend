@@ -16,12 +16,14 @@ export class AddSpaceComponent implements OnInit {
   user = this.userService.getConnectedUser();
 
   constructor(private fb: FormBuilder, private http: HttpClient, private router: Router,
-              private spaceService:SpaceService,private userService:UserService) { }
+              private spaceService: SpaceService, private userService: UserService) { }
   get form() { return this.addSpaceForm.controls; }
 
   public addSpaceForm =  this.fb.group({
     name: ['', Validators.required],
     location: ['', Validators.required],
+    latitudeMap: [''],
+    longitudeMap: [''],
     pictures: ['', [Validators.required]],
     hourOpen: [''],
     hourClose: [''],
@@ -30,9 +32,9 @@ export class AddSpaceComponent implements OnInit {
     });
    error: any;
    space: Space = new Space;
-   picture:any;
-   submitted: boolean = false;
-   selectImage(event:any) {
+   picture: any;
+
+   selectImage(event: any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       this.picture = file;
@@ -45,8 +47,8 @@ export class AddSpaceComponent implements OnInit {
     const  data = {
       name: this.addSpaceForm.value.name,
       location: this.addSpaceForm.value.location,
-      latitudeMap: 0,
-      longitudeMap: 0,
+      latitudeMap: this.addSpaceForm.value.latitudeMap,
+      longitudeMap: this.addSpaceForm.value.longitudeMap,
       hourOpen: this.addSpaceForm.value.hourOpen,
       hourClose: this.addSpaceForm.value.hourClose,
       description: this.addSpaceForm.value.description,
@@ -69,16 +71,6 @@ export class AddSpaceComponent implements OnInit {
     this.spaceService.pictureToAdd = this.picture;
     this.spaceService.userId = this.user._id;
     this.router.navigateByUrl('/payment').then(r => {});
-    // this.spaceService.postSpace(this.space,user._id,this.picture).subscribe(res => {
-    //   console.log(res);
-    //    this.submitted = true;
-    // },(err: any) => {
-    //   console.log(err);
-    // });
-    // if ( !this.error){
-    //   this.router.navigateByUrl('/coworkingspaces').then(r => {});
-    // }
-
   }
 
 

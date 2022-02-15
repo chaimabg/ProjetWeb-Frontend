@@ -4,7 +4,7 @@ import {UserService} from '../services/user.service';
 import {User} from '../models/User';
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {ForgetPassComponent} from "../forget-pass/forget-pass.component";
-import {EditPasswordComponent} from "../edit-password/edit-password.component";
+import {EditPasswordComponent} from "../user/edit-password/edit-password.component";
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',

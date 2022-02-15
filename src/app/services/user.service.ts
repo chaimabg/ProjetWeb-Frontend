@@ -4,45 +4,52 @@ import {Router} from '@angular/router';
 import {User} from '../models/User';
 import {Observable} from 'rxjs';
 import {Space} from '../models/Space';
+import {AuthUserDto} from '../user/dto/auth-user.dto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private error!: any;
-  private msg$ !: any;
-  private url = 'http://localhost:5000/user/update';
+  private urlUser = 'http://localhost:3000/users';
+  private urlAuth = 'http://localhost:3000/auth';
   constructor(private http: HttpClient, private router: Router) {
   }
 
-  getConnectedUser(): any {
-    return JSON.parse(localStorage.getItem('users') as string);
+  getConnectedUser(): any{
+  }
+  getToken(): any {
+    return JSON.parse(localStorage.getItem('token') as string);
   }
 
-  setConnectedUser(user: User): void {
-    localStorage.setItem('users', JSON.stringify(user));
+  setToken(token: string): void {
+    localStorage.setItem('token', JSON.stringify(token));
   }
-
+  login(user: AuthUserDto): any {
+    return this.http.post(`${this.urlAuth}`, user);
+  }
+  register(user: any): any{
+    return this.http.post(`${this.urlUser}`, user);
+  }
   logout(): void {
-    localStorage.removeItem('users');
-    this.router.navigateByUrl('/').then(r => {
+    localStorage.removeItem('token');
+    this.router.navigateByUrl('/').then(() => {
       window.location.reload();
     });
   }
-
-
-  update(user: any): any {
-    this.http.put('http://localhost:5000/user/update', user).toPromise().then((msg: any) => {
-      this.error = msg.error;
-      if (!this.error) {
-        this.setConnectedUser(msg);
-        window.location.reload();
-      }
-    });
+  update(user: User): any {
+    this.http.patch(`${this.urlUser}/${user._id}`, user).toPromise().then((result) => console.log(result));
   }
-
+  updatePassword(userId: string, newPwd: string): any{
+    return this.http.patch(`${this.urlUser}/${userId}`, newPwd);
+  }
+  sendPwdVerificationMail(email: string): any{
+    return this.http.post(`${this.urlUser}/sendMail`, email);
+  }
+  verifyToken(resetToken: string): any{
+    return this.http.post(`${this.urlUser}/verifyToken`, resetToken);
+  }
   getUserSpaces(id: any): Observable<Space[]> {
-    return this.http.get<Space[]>(`http://localhost:5000/user/userspaces/${id}`);
+    return this.http.get<Space[]>(`${this.urlUser}/spaces/${id}`);
   }
 }
 

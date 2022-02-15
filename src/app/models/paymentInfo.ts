@@ -6,6 +6,4 @@ export class PaymentInfo{
   mm!: number;
   yyyy!: number;
   sold!: number;
-
-
 }

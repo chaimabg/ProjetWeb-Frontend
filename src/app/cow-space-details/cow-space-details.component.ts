@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Space } from '../models/Space';
-import { SpaceService } from '../services/space.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Space} from '../models/Space';
+import {SpaceService} from '../services/space.service';
+import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {ReservationService} from '../services/reservation.service';
@@ -20,12 +20,10 @@ import {EventService} from '../services/event.service';
   styleUrls: ['./cow-space-details.component.css']
 })
 export class CowSpaceDetailsComponent implements OnInit {
-  title = 'My first AGM project';
-  space: Space = new Space;
+  space!: Space;
   id!: string;
-  idd: any;
   all: any;
-  nulle: any;
+  null: any;
   tab: any [] = [];
   error: any;
   reserved: any;
@@ -33,7 +31,7 @@ export class CowSpaceDetailsComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private route: ActivatedRoute, private http: HttpClient,
               private router: Router, private spaceService: SpaceService, private reservationService: ReservationService
-    ,         private userService: UserService, config: NgbRatingConfig, private dialog: MatDialog,
+    , private userService: UserService, config: NgbRatingConfig, private dialog: MatDialog,
               private eventService: EventService) {
     this.user = this.userService.getConnectedUser();
     config.max = 5;
@@ -44,7 +42,7 @@ export class CowSpaceDetailsComponent implements OnInit {
   }
 
   public ReservationForm = this.fb.group({
-    date: ['', [Validators.required] ],
+    date: ['', [Validators.required]],
     time: ['', [Validators.required]],
     guests: ['', [Validators.required]],
     number: [''],
@@ -52,71 +50,31 @@ export class CowSpaceDetailsComponent implements OnInit {
   });
 
 
-  submit(): void{
-    const d = this.ReservationForm.value.date.concat(new String('T18:20:00.000+00:00'));
-    this.reservationService.getSpace(this.idd, d).subscribe(res => {
-        this.tab = res;
-
-        if (this.ReservationForm.value.number === ''){
-          this.nulle = null;
-        }
-        else{
-          this.nulle = new String('2021-04-18T').concat(this.ReservationForm.value.number.toString());
-        }
-        if (this.ReservationForm.value.AllSpace === ''){
-          this.all = false;
-        }
-        else{
-          this.all = this.ReservationForm.value.AllSpace;
-        }
-        const diff = this.tab[0].capacity - this.tab[0].exists;
-        this.reserved = this.tab[0].reserved;
-        console.log('difffffffffff', diff);
-        console.log(this.reserved);
-
-        if (this.tab[0].exists < this.tab[0].capacity && !this.reserved) {
-          if (diff >= this.ReservationForm.value.guests) {
-            const data = {
-              date: this.ReservationForm.value.date.concat(new String('T18:20:00.000+00:00')),
-              time: new String('2021-04-18T').concat(this.ReservationForm.value.time.toString()),
-              guests: this.ReservationForm.value.guests,
-              NumberOfHours: this.nulle,
-              AllSpace: this.all,
-              spaceId: this.space._id
-            };
-            console.log('dataaa', data);
-
-            this.reservationService.createReservation(data).subscribe(res => {
-              console.log('res', res);
-              this.router.navigateByUrl('/paymentPage').then(r => {
-              });
-            }, (err: any) => {
-              this.error = err;
-              console.log('er', err);
-
-            });
-          } else {
-            this.error = 'There are only ' + diff + ' places left !';
-          }
-
-        } else {
-          this.error = 'this space is full';
-        }
-
-
-      }
-    );
+  submit(): void {
+    const data = {
+      date: this.ReservationForm.value.date.concat(new String('T18:20:00.000+00:00')),
+      time: new String('2021-04-18T').concat(this.ReservationForm.value.time.toString()),
+      guests: this.ReservationForm.value.guests,
+      NumberOfHours: this.null,
+      AllSpace: this.all,
+      spaceId: this.space._id
+    };
+    this.reservationService.createReservation(data).subscribe(res => {
+      this.router.navigateByUrl('/paymentPage').then(r => {
+      });
+    }, (err: any) => {
+      this.error = err;
+    });
   }
 
-
-
+  idd!: string;
 
   ngOnInit(): void {
-
     this.idd = this.route.snapshot.params._id;
     this.getSpace(this.route.snapshot.params._id);
   }
-  getSpace(id: string): void{
+
+  getSpace(id: string): void {
     this.spaceService.getSpace(id).subscribe(data => {
       console.log(data);
       this.space = data;
@@ -124,20 +82,17 @@ export class CowSpaceDetailsComponent implements OnInit {
         apiKey: 'AIzaSyBxv6MiH_nXVIsFUzmX5txEET91Ax7trRU'
       });
     });
-  }
+  };
 
   openDialog() {
     const dialogConfig = new MatDialogConfig();
-
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-
-    dialogConfig.data = {spaceID : this.space._id};
+    dialogConfig.data = {spaceID: this.space._id};
     dialogConfig.height = '650px';
     dialogConfig.width = '500px';
-
     const dialogRef = this.dialog.open(AddEventComponent, dialogConfig);
-
     dialogRef.afterClosed().subscribe();
   }
+
 }

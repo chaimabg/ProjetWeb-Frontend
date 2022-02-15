@@ -8,8 +8,7 @@ import {SpaceService} from './space.service';
   providedIn: 'root'
 })
 export class ReviewService {
-  ReviewUrl = 'http://localhost:5000/review';
-  r: any = [];
+  ReviewUrl = 'http://localhost:3000/reviews';
 
   constructor(private http: HttpClient, private spaceService: SpaceService) {
   }
@@ -23,7 +22,7 @@ export class ReviewService {
   }
 
   addReview(data: any): void {
-    this.http.post(`${this.ReviewUrl}/addReview`, data).toPromise().then(msg => {
+    this.http.post(`${this.ReviewUrl}`, data).toPromise().then(() => {
       window.location.reload();
     });
   }
@@ -33,7 +32,6 @@ export class ReviewService {
       this.spaceService.getSpace(item.workspace).subscribe(space => {
         item.workspace = space.name;
       });
-
     });
     return reviews;
   }

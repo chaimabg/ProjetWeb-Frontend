@@ -4,10 +4,9 @@
             <div class="col-xl-6 col-lg-6 offset-xl-3 offset-lg-2">
                 <div class="booking-form">
 
-                    <h3 class="text-center">Add A Coworking Space</h3>
+                    <h3 class="text-center">Edit Your Space</h3>
                     <div class="alert alert-danger" [class.d-none]="!error">{{error}}</div>
-
-                    <form (ngSubmit)="submit()" [formGroup]="addSpaceForm">
+                    <form (ngSubmit)="submit()" [formGroup]="editSpaceForm">
 
                         <div class="wrap-input100 ">
                             <input id="name" class="input100" type="text" placeholder="Name" formControlName="name">
@@ -24,16 +23,6 @@
                         </div>
                         <small class="error" *ngIf="form.location.touched && form.location.getError('required')">*Required </small>
                         <div class="wrap-input100 ">
-                            <input class="input100" type="text" placeholder="Latitude on Map" formControlName="latitudeMap">
-                            <span class="focus-input100"></span>
-
-                        </div>
-                        <div class="wrap-input100 ">
-                            <input class="input100" type="text" placeholder="Longitude on Map" formControlName="longitudeMap">
-                            <span class="focus-input100"></span>
-
-                        </div>
-                        <div class="wrap-input100 ">
                             <input class="input100" onfocus="(this.type='time')" type="text" placeholder="Hour Open" formControlName="hourOpen">
                             <span class="focus-input100"></span>
 
@@ -47,22 +36,13 @@
                             <textarea class="input100" name="description" placeholder="Description...." formControlName="description">
 
             </textarea>
+
                             <span class="focus-input100"></span>
                         </div>
-                        <div class="wrap-input100 ">
-                            <input class="input100" type="text" placeholder="Capacity" formControlName="capacity">
-                            <span class="focus-input100"></span>
-
-                        </div>
-                        <small class="error" *ngIf="form.capacity.touched && form.capacity.getError('required')">*Required </small>
-                        <div class="wrap-input100 ">
-                            <input class="input100 file" onfocus="(this.type='file')" type="text" name="pictures" placeholder="Insert picture" formControlName="pictures" (change)="selectImage($event)">
-                            <span class="focus-input100"></span>
-
-                        </div>
 
 
-                        <button type="submit" [disabled]="addSpaceForm.invalid">Submit</button>
+
+                        <button type="submit" [disabled]="editSpaceForm.invalid">Submit</button>
 
 
                     </form>

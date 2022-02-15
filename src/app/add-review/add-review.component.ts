@@ -40,10 +40,7 @@ export class AddReviewComponent implements OnInit {
   getReviews(): void{
     this.reviewService.getReview(this.space._id).subscribe(reviews => {
         this.reviews = reviews;
-      },
-      error => {
-        console.log(error);
-      });
+      }, error => {});
   }
 
   ngOnInit(): void {
