@@ -41,8 +41,6 @@ import {LoginComponent} from './user/login/login.component';
 
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,6 +68,7 @@ import {LoginComponent} from './user/login/login.component';
     PayementComponent,
     ReservationListComponent,
     ReservationItemComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -89,8 +88,6 @@ import {LoginComponent} from './user/login/login.component';
     MatMenuModule,
     MatIconModule,
     MatFormFieldModule,
-
-
   ],
   providers: [ UserService],
   bootstrap: [AppComponent]

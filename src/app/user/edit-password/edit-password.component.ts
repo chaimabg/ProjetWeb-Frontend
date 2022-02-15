@@ -37,12 +37,7 @@ export class EditPasswordComponent implements OnInit {
     return this.passForm.controls;
   }
   save() {
-    this.userService.updatePassword(this.user._id,this.passForm.value.password).subscribe(()=>{
-      this.dialogRef.close(this.passForm.value.password);
-      }, error => {
-      this.error = error;
-      }
-    );
+    this.userService.updatePassword(this.user._id, this.passForm.value.password);
   }
 
   close() {

@@ -9,7 +9,7 @@ import {UserService} from './user.service';
   providedIn: 'root'
 })
 export class EventService {
-  eventsUrl = 'http://localhost:5000/events';
+  eventsUrl = 'http://localhost:3000/events';
 
   constructor(private http: HttpClient, private userService: UserService) { }
   getEvents(): Observable<Event[]> {

@@ -42,7 +42,7 @@ export class SpaceItemComponent implements OnInit {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       this.picture = file;
-      console.log(this.picture);
+
     }
   }
 
@@ -50,7 +50,7 @@ export class SpaceItemComponent implements OnInit {
   delete(id: string): void {
     this.spaceService.delete(id).subscribe(msg => {
       this.error= msg.error;
-      console.log(msg);
+    ;
       if (!this.error) {
         this.router.navigateByUrl('/coworkingspaces');
       }
@@ -68,26 +68,24 @@ export class SpaceItemComponent implements OnInit {
       pictures: this.picture,
 
     };
-    //console.log("bbb", data._id);
 
-    console.log("data",data)
     this.spaceService.updatePicture(data).subscribe(res => {
-      console.log(res);
+
       this.submitted = true;
       this.success = 'picture uploaded successfully';
-     /* window.location.reload();*/
+
 
       this.picture= '';
     }, (err: any) => {
       this.err = err;
-      console.log(err);
+
     });
-    console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!")
+
 
   }
   f(id: any): void {
     this.id = id;
-    console.log("aaa", this.id);
+
   }
 clear(): void{
     this.editPictureSpaceForm.reset() ;

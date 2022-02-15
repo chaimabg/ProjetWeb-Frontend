@@ -49,12 +49,10 @@ export class EditSpaceComponent implements OnInit {
 
 
     this.spaceService.updateSpace(data).subscribe(res => {
-      console.log("hhhhhhhhhhhhhhhhhhhh",res);
 
       this.submitted = true;
     }, (err: any) => {
       this.error = err;
-      console.log("errrrrrrrrrrrrrrrrr",err);
     });
     if ( !this.error){
 

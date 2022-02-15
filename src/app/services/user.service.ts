@@ -10,8 +10,10 @@ import {AuthUserDto} from '../user/dto/auth-user.dto';
   providedIn: 'root'
 })
 export class UserService {
+
   private urlUser = 'http://localhost:3000/users';
   private urlAuth = 'http://localhost:3000/auth';
+
   constructor(private http: HttpClient, private router: Router) {
   }
 
@@ -36,6 +38,7 @@ export class UserService {
       window.location.reload();
     });
   }
+
   update(user: User): any {
     this.http.patch(`${this.urlUser}/${user._id}`, user).toPromise().then((result) => console.log(result));
   }
@@ -47,6 +50,7 @@ export class UserService {
   }
   verifyToken(resetToken: string): any{
     return this.http.post(`${this.urlUser}/verifyToken`, resetToken);
+
   }
   getUserSpaces(id: any): Observable<Space[]> {
     return this.http.get<Space[]>(`${this.urlUser}/spaces/${id}`);

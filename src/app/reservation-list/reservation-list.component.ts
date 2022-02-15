@@ -17,9 +17,7 @@ id:any;
     this.reservationService.getReservations(id).subscribe(reservations => {
         this.reservations = reservations;
       },
-      error => {
-        console.log(error);
-      });
+      error => {});
   }
   ngOnInit(): void {
     this.id = this.route.snapshot.params._id;
