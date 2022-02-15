@@ -10,7 +10,7 @@ import {Space} from '../models/Space';
 })
 export class UserService {
   private error!: any;
-  private msg$ !: any;
+  private msg !: any;
 
   constructor(private http: HttpClient, private router: Router) {
   }
@@ -32,7 +32,7 @@ export class UserService {
 
 
   update(user: any): any {
-    this.http.put('http://localhost:5000/user/update', user).toPromise().then((msg: any) => {
+    this.http.put('http://localhost:3000/user/update', user).toPromise().then((msg: any) => {
       this.error = msg.error;
       if (!this.error) {
         this.setConnectedUser(msg);
@@ -43,7 +43,7 @@ export class UserService {
   }
 
   getUserSpaces(id: any): Observable<Space[]> {
-    return this.http.get<Space[]>(`http://localhost:5000/user/userspaces/${id}`);
+    return this.http.get<Space[]>(`http://localhost:3000/user/userspaces/${id}`);
   }
 }
 

@@ -3,36 +3,49 @@ import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatIconModule} from '@angular/material/icon';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { ValidateEqualModule } from 'ng-validate-equal';
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {NgxPaginationModule} from 'ngx-pagination';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 import { AppComponent } from './app.component';
 
-import { ReservationItemComponent } from './reservation-item/reservation-item.component';
-
-import { NavbarComponent } from './navbar/navbar.component';
-import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
+import { CoworkingSpacesListComponent } from './coworking-spaces-list/coworking-spaces-list.component';
+import { CoworkingspaceItemComponent } from './coworkingspace-item/coworkingspace-item.component';
+import { CowSpaceDetailsComponent } from './cow-space-details/cow-space-details.component';
+
+import { AddSpaceComponent } from './add-space/add-space.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {UserService} from './services/user.service';
 import {ForgetPassComponent} from "./forget-pass/forget-pass.component";
-import {EditPasswordComponent} from "./edit-password/edit-password.component";
+
 import { ReservationListComponent } from './reservation-list/reservation-list.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 
-import { CoworkingSpacesListComponent } from './coworking-spaces-list/coworking-spaces-list.component';
-import { CoworkingspaceItemComponent } from './coworkingspace-item/coworkingspace-item.component';
+
 import { ResetPassComponent } from './forget-pass/reset-pass/reset-pass.component';
-import { PayementComponent } from './payement/payement.component';
-import { PaymentPageComponent } from './payment-page/payment-page.component';
+
 import { SpaceItemComponent } from './space-item/space-item.component';
-import { CowSpaceDetailsComponent } from './cow-space-details/cow-space-details.component';
+
 import { EditSpaceComponent } from './edit-space/edit-space.component';
+
+import { PaymentPageComponent } from './payment-page/payment-page.component';
+
+
+import { EditPasswordComponent } from './edit-password/edit-password.component';
+import {PayementComponent} from './payement/payement.component';
+import { ReservationItemComponent } from './reservation-item/reservation-item.component';
+import {AddEventComponent} from './add-event/add-event.component';
+import {EventComponent} from './event/event.component';
 
 
 @NgModule({
@@ -43,12 +56,19 @@ import { EditSpaceComponent } from './edit-space/edit-space.component';
     RegisterComponent,
     CoworkingSpacesListComponent,
     CoworkingspaceItemComponent,
-
+         CowSpaceDetailsComponent,
+    NavbarComponent,
+    FooterComponent,
+    AddSpaceComponent,
+    PaymentPageComponent,
+    PayementComponent,
+    ReservationItemComponent,
+    AddEventComponent,
+    EventComponent,
     NavbarComponent,
     FooterComponent,
     UserProfileComponent,
 
-    PaymentPageComponent,
 
     SpaceItemComponent,
 
@@ -58,8 +78,7 @@ import { EditSpaceComponent } from './edit-space/edit-space.component';
 
     PayementComponent,
     ReservationListComponent,
-    ReservationItemComponent,
-    CowSpaceDetailsComponent,
+
     EditSpaceComponent,
   ],
   imports: [
@@ -67,20 +86,17 @@ import { EditSpaceComponent } from './edit-space/edit-space.component';
     AppRoutingModule,
     ReactiveFormsModule,
     NgbModule,
-
+    ValidateEqualModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
     FormsModule,
-    NgbModule,
-
     MatDialogModule,
     NgxPaginationModule,
     MatSnackBarModule,
     MatMenuModule,
     MatIconModule,
     MatFormFieldModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent]

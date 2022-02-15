@@ -1,35 +1,4 @@
-/******************************************************************
-  Template Name: Sona
-  Description: Sona Hotel Html Template
-  Author: Colorlib
-  Author URI: https://colorlib.com
-  Version: 1.0
-  Created: Colorlib
-******************************************************************/
-
-
-/*------------------------------------------------------------------
-[Table of contents]
-
-1.  Template default CSS
-	1.1	Variables
-	1.2	Mixins
-	1.3	Flexbox
-	1.4	Reset
-2.  Helper Css
-3.  Header Section
-4.  Hero Section
-5.  About Section
-6.  Services Section
-7.  Testimonial Section
-8.  Blog Section
-9.  Contact
-10.  Footer Style
-
--------------------------------------------------------------------*/
-
-
-/*----------------------------------------*/
+    /*----------------------------------------*/
 
 
 /* Template default CSS
@@ -2481,11 +2450,6 @@ ol {
         width: 26px;
         border-radius: 50%;
         margin-right: 10px;
-    }
-    .offcanvas-menu-wrapper .header-configure-area .language-option span {
-        font-size: 16px;
-        color: #19191a;
-        text-transform: uppercase;
         font-weight: 500;
     }
     .offcanvas-menu-wrapper .header-configure-area .language-option .flag-dropdown {
@@ -2504,16 +2468,6 @@ ol {
         -o-transition: all 0.3s;
         transition: all 0.3s;
         z-index: 99;
-    }
-    .offcanvas-menu-wrapper .header-configure-area .language-option .flag-dropdown ul li {
-        list-style: none;
-        text-align: left;
-    }
-    .offcanvas-menu-wrapper .header-configure-area .language-option .flag-dropdown ul li a {
-        font-size: 14px;
-        text-transform: uppercase;
-        font-weight: 500;
-        color: #19191a;
         -webkit-transition: all 0.3s;
         -o-transition: all 0.3s;
         transition: all 0.3s;
@@ -2643,108 +2597,414 @@ ol {
     }
 }
 
+.menu-item .nav-menu .mainmenu li .dropdown li a:hover {
+    color: #dfa974;
+}
 
-/* Tablet Device: 768px */
+.menu-item .nav-menu .mainmenu li .dropdown li a:after {
+    display: none;
+}
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-    .testimonial-slider.owl-carousel .owl-nav button {
-        left: -30px;
-    }
-    .testimonial-slider.owl-carousel .owl-nav button.owl-next {
-        right: -30px;
-    }
-    .hp-room-items {
-        margin: 0;
-    }
-    .hp-room-item {
-        margin-bottom: 15px;
-    }
+<<<<<<< HEAD .menu-item .nav-menu .nav-right {
+    display: inline-block;
+    margin-left: 43px;
+    padding: 27px 0px;
+}
+
+.menu-item .nav-menu .nav-right i {
+    font-size: 16px;
+    color: #19191a;
+    cursor: pointer;
+}
+
+.canvas-open {
+    display: none;
+}
+
+.offcanvas-menu-wrapper {
+    display: none;
 }
 
 
-/* Large Mobile: 480px */
+/*---------------------
+  Hero
+-----------------------*/
 
-@media only screen and (max-width: 767px) {
-    .testimonial-slider.owl-carousel .owl-nav {
-        display: none;
-    }
-    .room-details-item .rd-text .rd-title {
-        margin-bottom: 25px;
-    }
-    .room-details-item .rd-text .rd-title h3 {
-        float: none;
-        margin-bottom: 30px;
-    }
-    .room-details-item .rd-text .rd-title .rdt-right {
-        float: none;
-        text-align: left;
-    }
-    .footer-section .copyright-option ul li {
-        margin-right: 25px;
-    }
-    .blog-details-text .tag-share .tags {
-        float: none;
-        margin-bottom: 20px;
-    }
-    .blog-details-text .tag-share .social-share {
-        float: none;
-    }
-    .about-text .section-title h2 {
-        font-size: 30px;
-        line-height: 40px;
-    }
-    .hp-room-items {
-        margin: 0 -5px;
-    }
-    .hp-room-item {
-        margin-bottom: 10px;
-    }
+.hero-section {
+    position: relative;
+    padding-top: 60px;
+    padding-bottom: 100px;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 5;
+}
+
+.hero-text {
+    padding-top: 145px;
+}
+
+.hero-text h1 {
+    font-size: 80px;
+    line-height: 90px;
+    color: #ffffff;
+    margin-bottom: 16px;
+}
+
+.hero-text p {
+    font-size: 18px;
+    color: #ffffff;
+    line-height: 28px;
+    margin-bottom: 35px;
+}
+
+.booking-form {
+    background: #ffffff;
+    padding: 0px 0px 0px 0px;
+    margin-right: 200px;
+    padding-left: 0px;
+    border-radius: 4px;
+}
+
+.booking form form {
+    margin-top: 200px
+}
+
+.booking-form h3 {
+    color: #19191a;
+    margin-bottom: 36px;
+}
+
+.booking-form form .check-date {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.booking-form form .check-date label {
+    font-size: 14px;
+    color: #707079;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.booking-form form .check-date input {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #ebebeb;
+    border-radius: 2px;
+    font-size: 16px;
+    color: #19191a;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding-left: 20px;
+}
+
+.booking-form form .check-date i {
+    color: #dfa974;
+    position: absolute;
+    right: 18px;
+    bottom: 17px;
+}
+
+.booking-form form .select-option {
+    margin-bottom: 15px;
+}
+
+.booking-form form .select-option label {
+    font-size: 14px;
+    color: #707079;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.booking-form form .select-option .nice-select {
+    border-radius: 2px;
+    border: 1px solid #ebebeb;
+    height: 50px;
+    line-height: 50px;
+    outline: none;
+    padding-left: 20px;
+    width: 100%;
+    float: none;
+}
+
+.booking-form form .select-option .nice-select:after {
+    border-bottom: 2px solid #dfa974;
+    border-right: 2px solid #dfa974;
+    height: 10px;
+    margin-top: 0;
+    right: 20px;
+    width: 10px;
+    top: 36%;
+}
+
+.booking-form form .select-option .nice-select span {
+    font-size: 16px;
+    color: #19191a;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.booking-form form .select-option .nice-select .list {
+    margin-top: 0;
+    width: 100%;
+}
+
+.booking-form form button {
+    display: block;
+}
+
+.hero-slider {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+
+.hero-slider.owl-carousel .owl-dots {
+    position: absolute;
+    left: 0;
+    bottom: 23px;
+    width: 100%;
+    text-align: center;
+}
+
+.hero-slider.owl-carousel .owl-dots button {
+    height: 6px;
+    width: 6px;
+    background: #ffffff;
+    opacity: 0.5;
+    border-radius: 50%;
+    margin-right: 10px;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.hero-slider.owl-carousel .owl-dots button.active {
+    width: 30px;
+    border-radius: 50px;
+    opacity: 1;
+}
+
+.hero-slider.owl-carousel .owl-dots button:last-child {
+    margin-right: 0;
+}
+
+.hero-slider .owl-stage-outer,
+.hero-slider .owl-stage,
+.hero-slider .owl-item,
+.hero-slider .hs-item {
+    height: 100%;
 }
 
 
-/* Small Mobile: 320px */
+/*---------------------
+  About US
+-----------------------*/
 
-@media only screen and (max-width: 479px) {
-    .footer-section .copyright-option ul li {
-        margin-bottom: 5px;
-    }
-    .video-section {
-        padding-top: 80px;
-    }
-    .rd-reviews .review-item .ri-pic,
-    .blog-details-text .comment-option .single-comment-item .sc-author {
-        float: none;
-        margin-bottom: 30px;
-    }
-    .rd-reviews .review-item .ri-text .rating {
-        position: relative;
-    }
-    .rd-reviews .review-item .ri-text,
-    .blog-details-text .comment-option .single-comment-item.second-comment .sc-text,
-    .blog-details-text .comment-option .single-comment-item.first-comment .sc-text {
-        padding-left: 0;
-    }
-    .blog-details-text .comment-option .single-comment-item.reply-comment {
-        padding-left: 30px;
-    }
-    .rd-reviews .review-item .ri-text:before,
-    .blog-details-text .comment-option .single-comment-item.first-comment .sc-text:before,
-    .blog-details-text .comment-option .single-comment-item.second-comment .sc-text:before {
-        display: none;
-    }
-    .blog-details-hero {
-        padding-top: 70px;
-    }
-    .blog-details-text .bd-pic .bp-item {
-        width: 100%;
-        float: none;
-        margin-right: 0;
-        margin-bottom: 10px;
-    }
-    .blog-details-text .tag-share .tags a {
-        margin-bottom: 6px;
-    }
-    .blog-details-text .comment-option .single-comment-item .sc-text a {
-        margin-bottom: 10px;
-    }
+.about-text {
+    text-align: center;
+    padding: 0 35px;
 }
+
+.about-text p {
+    color: #595960;
+    font-weight: 500;
+}
+
+.about-text p.f-para {
+    margin-bottom: 10px;
+}
+
+.about-text p.s-para {
+    margin-bottom: 35px;
+}
+
+.about-text .about-btn {
+    color: #19191a;
+}
+
+.about-pic img {
+    min-width: 100%;
+}
+
+
+/*---------------------
+  Service Section
+-----------------------*/
+
+.services-section {
+    padding-bottom: 60px;
+    border-top: 1px solid #e5e5e5;
+}
+
+.services-section .section-title {
+    margin-bottom: 36px;
+}
+
+.service-item {
+    text-align: center;
+    padding: 30px 35px 18px;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.service-item:hover {
+    background: #dfa974;
+}
+
+.service-item:hover i {
+    color: #ffffff;
+}
+
+.service-item:hover h4 {
+    color: #ffffff;
+}
+
+.service-item:hover p {
+    color: #ffffff;
+}
+
+.service-item i {
+    display: inline-block;
+    color: #dfa974;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.service-item h4 {
+    color: #19191a;
+    font-size: 22px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.service-item p {
+    color: #707079;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+
+/*------------------------
+  Home Page Room Section
+-------------------------*/
+
+.hp-room-items {
+    margin-left: -15px;
+    margin-right: -15px;
+    overflow: hidden;
+}
+
+.hp-room-items .hp-room-item {
+    height: 600px;
+    margin-right: -15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hp-room-items .hp-room-item:hover .hr-text {
+    bottom: 135px;
+}
+
+.hp-room-items .hp-room-item:hover .hr-text h2 {
+    margin-bottom: 30px;
+}
+
+.hp-room-items .hp-room-item .hr-text {
+    position: absolute;
+    left: 45px;
+    right: 25px;
+    bottom: -250px;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.hp-room-items .hp-room-item .hr-text h3 {
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.hp-room-items .hp-room-item .hr-text h2 {
+    color: #dfa974;
+    font-weight: 700;
+    margin-bottom: 50px;
+    -webkit-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+.hp-room-items .hp-room-item .hr-text h2 span {
+    font-family: "Cabin", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #ffffff;
+}
+
+.hp-room-items .hp-room-item .hr-text table {
+    margin-bottom: 30px;
+}
+
+.hp-room-items .hp-room-item .hr-text table tbody tr td {
+    font-size: 16px;
+    color: #ffffff;
+    line-height: 36px;
+}
+
+.hp-room-items .hp-room-item .hr-text table tbody tr td.r-o {
+    width: 120px;
+}
+
+.hp-room-items .hp-room-item .hr-text .primary-btn:after {
+    background: #ffffff;
+}
+
+
+/*---------------------
+  Testimonial Slider
+-----------------------*/
+
+.testimonial-section {
+    background: #f9f9f9;
+}
+
+.testimonial-section .section-title {
+    margin-bottom: 30px;
+}
+
+.testimonial-slider.owl-carousel .owl-item img {
+    width: auto;
+    margin: 0 auto;
+}
+
+.testimonial-slider.owl-carousel .owl-nav button {
+    height: 44px;
+    width: 44px;
+    border: 1px solid #ebebeb;
+    font-size: 24px;
+    color: #707079;
+    background: #ffffff;
+    line-height: 48px;
+    text-align: center;
+    border-radius: 50%;
+    position: absolute;
+    left: -190px;
+    top: 50%;
+    -webkit-transform: translateY(-6px);
+    -ms-transform: translateY(-6px);
+    transform: translateY(-6px);
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.testimonial-slider.owl-carousel .owl-nav button:hover {

@@ -18,10 +18,9 @@ id:any;
   getReservations(id:any): void{
     this.reservationService.getReservations(id).subscribe(reservations => {
         this.reservations = reservations;
-        console.log("AAAAAAAAAAAAAAA");
       },
       error => {
-        console.log(error);
+
       });
   }
   ngOnInit(): void {

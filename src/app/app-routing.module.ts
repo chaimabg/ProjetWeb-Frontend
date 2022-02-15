@@ -12,7 +12,8 @@ import { CowSpaceDetailsComponent } from './cow-space-details/cow-space-details.
 import { EditSpaceComponent } from './edit-space/edit-space.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
 import { PayementComponent } from './payement/payement.component';
-/*import {EditSpaceComponent} from './edit-space/edit-space.component';*/
+
+import { AddSpaceComponent } from './add-space/add-space.component';
 const routes: Routes = [
   {path: 'login', component: LoginComponent },
   {path: 'register', component: RegisterComponent },
@@ -32,9 +33,9 @@ const routes: Routes = [
   {path: '404NOTFOUND', component: PageNotFoundComponent},
   {path: '', component: HomeComponent},
   ,*/
-  {path: 'resetPassword/:token', component: ResetPassComponent}
+  {path: 'resetPassword/:token', component: ResetPassComponent},
 
-
+  {path: 'addSpace', component: AddSpaceComponent},
 ]
 
 

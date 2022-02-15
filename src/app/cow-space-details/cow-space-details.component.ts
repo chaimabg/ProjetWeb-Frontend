@@ -5,14 +5,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import {FormBuilder, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {ReservationService} from '../services/reservation.service';
-
+/*import {Loader} from "@googlemaps/js-api-loader";*/
 import {User} from "../models/User";
 import {UserService} from "../services/user.service";
 import {NgbRatingConfig} from "@ng-bootstrap/ng-bootstrap";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
-/*import {AddEventComponent} from "../add-event/add-event.component";
+import {AddEventComponent} from "../add-event/add-event.component";
 import {EventService} from "../services/event.service";
-import {Loader} from "@googlemaps/js-api-loader";*/
+
 
 @Component({
   selector: 'app-cow-space-details',
@@ -34,7 +34,7 @@ export class CowSpaceDetailsComponent implements OnInit {
   constructor(private fb: FormBuilder, private route: ActivatedRoute, private http: HttpClient,
               private router: Router, private spaceService: SpaceService, private reservationService: ReservationService
     , private userService: UserService, config: NgbRatingConfig, private dialog: MatDialog,
-              /*private eventService:EventService*/) {
+              private eventService:EventService) {
     this.user = this.userService.getConnectedUser();
     config.max = 5;
   }
@@ -136,7 +136,7 @@ console.log("difffffffffff",diff)
     })
   }
 
- /* openDialog() {
+  openDialog() {
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = true;
@@ -151,5 +151,5 @@ console.log("difffffffffff",diff)
     dialogRef.afterClosed().subscribe(
       data => console.log("Dialog output:", data)
     );
-  }*/
+  }
 }

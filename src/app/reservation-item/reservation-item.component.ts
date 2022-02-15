@@ -20,7 +20,6 @@ export class ReservationItemComponent implements OnInit {
   delete(id: string): void {
     this.reservationService.delete(id).subscribe(msg => {
       this.error = msg.error;
-      console.log(msg);
       if (!this.error) {
         window.location.reload();
       }
