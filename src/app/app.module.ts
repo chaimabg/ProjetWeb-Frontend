@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ValidateEqualModule } from 'ng-validate-equal';
+import {ValidateEqualModule} from 'ng-validate-equal';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -36,6 +36,8 @@ import {PayementComponent} from './payement/payement.component';
 import { ReservationItemComponent } from './reservation-item/reservation-item.component';
 import {AddEventComponent} from './add-event/add-event.component';
 import {EventComponent} from './event/event.component';
+import {AddReviewComponent} from './add-review/add-review.component';
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -56,7 +58,9 @@ import {EventComponent} from './event/event.component';
     PayementComponent,
     ReservationItemComponent,
     AddEventComponent,
-    EventComponent
+    EventComponent,
+    AddReviewComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
