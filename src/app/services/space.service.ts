@@ -15,7 +15,7 @@ export class SpaceService {
   pictureToAdd!: File;
   userId!: string;
   submitted!: any;
-  spacesUrl = 'http://localhost:5000/spaces';
+  spacesUrl = 'http://localhost:3000/space';
 
   constructor(private http: HttpClient) {
   }
@@ -30,7 +30,7 @@ export class SpaceService {
 
 
   filterSpaces(query: string): Observable<Space[]> {
-    return this.http.get<Space[]>(`${this.spacesUrl}/filter/?${query}`);
+    return this.http.get<Space[]>(`${this.spacesUrl}/filter/${query}`);
   }
   getSpace(id: string): Observable<Space>{
 
@@ -62,7 +62,7 @@ export class SpaceService {
 }
 
   updateSpace(space: any): Observable<any> {
-    return this.http.put<Space>('http://localhost:5000/updateSpace', space);
+    return this.http.put<Space>('http://localhost:3000', space);
   }
 
   updatePicture(data: any): Observable<any> {
