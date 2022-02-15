@@ -38,6 +38,7 @@ import {AddEventComponent} from './add-event/add-event.component';
 import {EventComponent} from './event/event.component';
 import {AddReviewComponent} from './add-review/add-review.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import {HomeComponent} from './home/home.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
     AddEventComponent,
     EventComponent,
     AddReviewComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

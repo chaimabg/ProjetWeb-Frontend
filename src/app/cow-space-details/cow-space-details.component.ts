@@ -114,14 +114,7 @@ export class CowSpaceDetailsComponent implements OnInit {
   ngOnInit(): void {
 
     this.idd = this.route.snapshot.params._id;
-    // this.reservationService.getSpace(this.idd).subscribe(res => {
-    //   this.tab = res;
-    // });
     this.getSpace(this.route.snapshot.params._id);
-    // if (this.space == null) this.router.navigateByUrl('/404NOTFOUND').then(r => {});
-    // if (this.space.pictures != null && this.space.pictures != undefined) {}console.log(this.space.pictures);
-
-
   }
   getSpace(id: string): void{
     this.spaceService.getSpace(id).subscribe(data => {
@@ -130,24 +123,6 @@ export class CowSpaceDetailsComponent implements OnInit {
       const loader = new Loader({
         apiKey: 'AIzaSyBxv6MiH_nXVIsFUzmX5txEET91Ax7trRU'
       });
-      /*loader.load().then(() => {
-        const map = new google.maps.Map(document.getElementById('map') as HTMLMapElement, {
-          center: {lat: this.space.latitudeMap, lng: this.space.longitudeMap},
-          zoom: 9
-        });
-        new google.maps.Marker({
-          position: {lat: this.space.latitudeMap, lng: this.space.longitudeMap},
-          map,
-          label: {
-            text: this.space.name,
-            color: 'white', // <= HERE
-            fontSize: '17px',
-            fontWeight: '500'
-
-          },
-        });
-      });*/
-
     });
   }
 
@@ -163,8 +138,6 @@ export class CowSpaceDetailsComponent implements OnInit {
 
     const dialogRef = this.dialog.open(AddEventComponent, dialogConfig);
 
-    dialogRef.afterClosed().subscribe(
-      data => console.log('Dialog output:', data)
-    );
+    dialogRef.afterClosed().subscribe();
   }
 }

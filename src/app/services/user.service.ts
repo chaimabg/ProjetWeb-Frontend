@@ -11,7 +11,7 @@ import {Space} from '../models/Space';
 export class UserService {
   private error!: any;
   private msg$ !: any;
-
+  private url = 'http://localhost:5000/user/update';
   constructor(private http: HttpClient, private router: Router) {
   }
 
@@ -37,7 +37,6 @@ export class UserService {
       if (!this.error) {
         this.setConnectedUser(msg);
         window.location.reload();
-        //this.router.navigateByUrl('/').then(r => {});
       }
     });
   }

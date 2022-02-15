@@ -2,9 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
-import {UserService} from "../services/user.service";
-import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
-import {ForgetPassComponent} from "../forget-pass/forget-pass.component";
+import {UserService} from '../services/user.service';
+import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
+import {ForgetPassComponent} from '../forget-pass/forget-pass.component';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
 
 
   constructor(private fb: FormBuilder, private http: HttpClient,
-              private router: Router, private userService: UserService,private dialog: MatDialog) {
+              private router: Router, private userService: UserService, private dialog: MatDialog) {
   }
 
   get form() {
@@ -64,13 +64,13 @@ export class LoginComponent implements OnInit {
       id: 1,
       title: 'Angular For Beginners'
     };
-    dialogConfig.height='550px';
-    dialogConfig.width='550px';
+    dialogConfig.height = '550px';
+    dialogConfig.width = '550px';
 
     const dialogRef = this.dialog.open(ForgetPassComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(
-      data => console.log("Dialog output:", data)
+      data => console.log('Dialog output:', data)
     );
   }
 }
