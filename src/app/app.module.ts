@@ -39,10 +39,6 @@ import {PayementComponent} from "./payement/payement.component";
 import { ReservationListComponent } from './reservation-list/reservation-list.component';
 import { ReservationItemComponent } from './reservation-item/reservation-item.component';
 
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,10 +54,10 @@ import { ReservationItemComponent } from './reservation-item/reservation-item.co
     AddSpaceComponent,
     HomeComponent,
     PageNotFoundComponent,
-      AddReviewComponent,
-      PaymentPageComponent,
-      EditSpaceComponent,
-      SpaceItemComponent,
+    AddReviewComponent,
+    PaymentPageComponent,
+    EditSpaceComponent,
+    SpaceItemComponent,
       ForgetPassComponent,
       ResetPassComponent,
       EditPasswordComponent,
